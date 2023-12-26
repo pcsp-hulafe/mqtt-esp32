@@ -159,6 +159,64 @@ void publishJsonMessage(PubSubClient& client, const String& topic, const String&
   doc["temperature"] = temperature;          // Temperatura del sensor
   doc["humidity"] = humidity;                // Humedad del sensor
 
+
+  /*
+  // Construir la estructura JSON FHIR
+  doc["resourceType"] = "Observation";
+  doc["id"] = "iot-temperature-humidity-observation";
+  doc["status"] = "final";
+
+  JsonArray category = doc.createNestedArray("category");
+  JsonObject category_0 = category.createNestedObject();
+  JsonArray category_0_coding = category_0.createNestedArray("coding");
+  JsonObject category_0_coding_0 = category_0_coding.createNestedObject();
+  category_0_coding_0["system"] = "http://terminology.hl7.org/CodeSystem/observation-category";
+  category_0_coding_0["code"] = "vital-signs";
+  category_0_coding_0["display"] = "Vital Signs";
+
+  JsonObject code = doc.createNestedObject("code");
+  JsonArray code_coding = code.createNestedArray("coding");
+  JsonObject code_coding_0 = code_coding.createNestedObject();
+  code_coding_0["system"] = "http://loinc.org";
+  code_coding_0["code"] = "LA6576-8";
+  code_coding_0["display"] = "Ambient temperature and humidity";
+
+  JsonObject subject = doc.createNestedObject("subject");
+  subject["reference"] = "Patient/example";
+
+  JsonObject device = doc.createNestedObject("device");
+  device["display"] = "IoT Temperature & Humidity Sensor";
+
+  doc["effectiveDateTime"] = "2023-12-01T10:30:00Z";
+
+  JsonArray component = doc.createNestedArray("component");
+  JsonObject component_0 = component.createNestedObject();
+  JsonObject component_0_code = component_0.createNestedObject("code");
+  JsonArray component_0_code_coding = component_0_code.createNestedArray("coding");
+  JsonObject component_0_code_coding_0 = component_0_code_coding.createNestedObject();
+  component_0_code_coding_0["system"] = "http://loinc.org";
+  component_0_code_coding_0["code"] = "8310-5";
+  component_0_code_coding_0["display"] = "Body temperature";
+  JsonObject component_0_valueQuantity = component_0.createNestedObject("valueQuantity");
+  component_0_valueQuantity["value"] = temperature;
+  component_0_valueQuantity["unit"] = "degrees Celsius";
+  component_0_valueQuantity["system"] = "http://unitsofmeasure.org";
+  component_0_valueQuantity["code"] = "Cel";
+
+  JsonObject component_1 = component.createNestedObject();
+  JsonObject component_1_code = component_1.createNestedObject("code");
+  JsonArray component_1_code_coding = component_1_code.createNestedArray("coding");
+  JsonObject component_1_code_coding_0 = component_1_code_coding.createNestedObject();
+  component_1_code_coding_0["system"] = "http://loinc.org";
+  component_1_code_coding_0["code"] = "Humidity";
+  component_1_code_coding_0["display"] = "Ambient humidity";
+  JsonObject component_1_valueQuantity = component_1.createNestedObject("valueQuantity");
+  component_1_valueQuantity["value"] = humidity;
+  component_1_valueQuantity["unit"] = "%";
+  component_1_valueQuantity["system"] = "http://unitsofmeasure.org";
+  component_1_valueQuantity["code"] = "%";
+  */
+
   // Crear un String con el JSON
   String jsonMessage;
   serializeJson(doc, jsonMessage);
